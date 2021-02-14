@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
                 DBConnection dbConnection = new DBConnection();
                 Connection connection = dbConnection.openConnection();
 
-                String query = "SELECT * FROM tbl_user WHERE email=? AND password=?";
+                String query = "SELECT * FROM user WHERE email=? AND password=?";
 
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, email);

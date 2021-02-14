@@ -119,7 +119,7 @@ public class RegistrationController implements Initializable {
             // open db connection
             Connection connection = dbConnection.openConnection();
 
-            String sql = "INSERT INTO tbl_user(first_name, last_name, email, password, area_code, phone, address,dob, gender) VALUES(?, ?, ?, ?, ?, ?, ?,?, ?)";
+            String sql = "INSERT INTO user(first_name, last_name, email, password, area_code, phone, address,dob, gender) VALUES(?, ?, ?, ?, ?, ?, ?,?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, first_name);

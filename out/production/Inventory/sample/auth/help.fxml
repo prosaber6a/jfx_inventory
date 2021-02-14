@@ -35,7 +35,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Hyperlink layoutX="168.0" layoutY="286.0" text="&lt;&lt; Back to Sign In">
+      <Hyperlink layoutX="168.0" layoutY="286.0" text="&lt;&lt; Back to Sign In" fx:id="hyp_login" onAction="#goLoginScene">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
