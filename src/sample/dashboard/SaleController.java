@@ -98,23 +98,24 @@ public class SaleController {
     }
 
     private static String[] push(String[] array, String push) {
-        String[] longer = new String[array.length + 1];
-        for (int i = 0; i < array.length; i++)
-            longer[i] = array[i];
-        longer[array.length] = push;
-        return longer;
+        String[] temp = new String[array.length + 1];
+        for (int i = 0; i < array.length; i++) {
+            temp[i] = array[i];
+        }
+        temp[array.length] = push;
+        return temp;
     }
 
 
-    public String[] productList() {
-        String [] data;
+    public ObservableList<Sale> productList() {
+        ObservableList<Sale> data = FXCollections.observableArrayList();
         try {
             // open db connection
             connection = dbConnection.openConnection();
 
             String sql = "SELECT * FROM product";
             ResultSet result = connection.createStatement().executeQuery(sql);
-            data = new String[-1];
+
             while (result.next()) {
                 Product product = new Product(
                         result.getInt("pro_id"),
@@ -126,7 +127,8 @@ public class SaleController {
                 );
 
                 String name = product.getName();
-                data = push(data, name);
+//                data = this.push(data, name);
+//                data.add(product.getName());
             }
 
             return data;

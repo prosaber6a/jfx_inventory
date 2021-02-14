@@ -1,6 +1,7 @@
 package sample.dashboard;
 
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -64,7 +65,15 @@ public class DashboardController implements Initializable {
         // product form unit cb
         String[] unit = {"KG", "Meter", "Ton"};
         cb_pro_unit.getItems().addAll(unit);
+        //sale form
+        /*
+        String[] productsList = saleController.productList();
+        ObservableList<Sale> productsList = saleController.productList();
 
+
+        cb_sale_product.setItems(productsList);
+
+         */
         pro_tbl_counter.setCellValueFactory(new PropertyValueFactory<>("pro_id"));
         pro_tbl_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         pro_tbl_unit.setCellValueFactory(new PropertyValueFactory<>("unit"));
@@ -83,7 +92,6 @@ public class DashboardController implements Initializable {
 
 
         get_all_product();
-//        cb_sale_product.getItems().addAll(products);
         get_all_sale();
 
     }
