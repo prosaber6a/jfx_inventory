@@ -14,7 +14,10 @@ public class SaleController {
     private DBConnection dbConnection = null;
     private Connection connection = null;
 
-    public boolean add(String cust_name, String cust_mobile, String cust_address, String product, float quantity, float rate) {
+    public boolean add(String cust_name, String cust_mobile, String cust_address, String product, String pquantity, String prate) {
+
+        float quantity = Float.parseFloat(pquantity);
+        float rate = Float.parseFloat(prate);
 
         try {
 
@@ -76,6 +79,7 @@ public class SaleController {
 
 
                 salesdata.add(sale);
+                System.out.println("Hello");
             }
 
             return salesdata;

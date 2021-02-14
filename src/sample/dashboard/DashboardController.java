@@ -84,7 +84,7 @@ public class DashboardController implements Initializable {
 
         get_all_product();
 //        cb_sale_product.getItems().addAll(products);
-//        get_all_sale();
+        get_all_sale();
 
     }
 
@@ -119,8 +119,8 @@ public class DashboardController implements Initializable {
         //Get Value
         String name = tf_pro_name.getText();
         String unit = (String) cb_pro_unit.getSelectionModel().getSelectedItem();
-        Float quantity = Float.parseFloat(tf_pro_quantity.getText());
-        Float rate = Float.parseFloat(tf_pro_rate.getText());
+        float quantity = Float.parseFloat(tf_pro_quantity.getText());
+        float rate = Float.parseFloat(tf_pro_rate.getText());
 
         if (name.isEmpty()) {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Product Name field must not be empty");
@@ -169,8 +169,11 @@ public class DashboardController implements Initializable {
         String cust_mobile = tf_sale_cust_mobile.getText();
         String cust_address = tf_sale_cust_address.getText();
         String product = (String) cb_sale_product.getSelectionModel().getSelectedItem();
-        Float quantity = Float.parseFloat(tf_sale_quantity.getText());
-        Float rate = Float.parseFloat(tf_sale_rate.getText());
+
+        /*float quantity = Float.parseFloat(tf_sale_quantity.getText());
+        float rate = Float.parseFloat(tf_sale_rate.getText());*/
+        String quantity = tf_sale_quantity.getText();
+        String rate = tf_sale_rate.getText();
 
         if (cust_name.isEmpty()) {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Customer Name field must not be empty");
@@ -184,15 +187,16 @@ public class DashboardController implements Initializable {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Customer Address field must not be empty");
             return;
         }
-        if (product.isEmpty()) {
+        /*
+        if (product.equals("")) {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Unit field must not be empty");
             return;
-        }
-        if (quantity < 1) {
+        }*/
+        if (quantity.isEmpty()) {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Quantity field must not be empty");
             return;
         }
-        if (rate < 0) {
+        if (rate.isEmpty()) {
             Core.jfx_inv_alert(Alert.AlertType.WARNING, "Error", "Product Name field must not be empty");
             return;
         }
@@ -202,7 +206,7 @@ public class DashboardController implements Initializable {
         if (result == Boolean.TRUE) {
             Core.jfx_inv_alert(Alert.AlertType.CONFIRMATION, "Success", "Successfully sale info inserted..!");
             clear_sale_form();
-            get_all_product();
+            get_all_sale();
         } else {
             Core.jfx_inv_alert(Alert.AlertType.ERROR, "Error", "Error while saving sale info..");
         }
